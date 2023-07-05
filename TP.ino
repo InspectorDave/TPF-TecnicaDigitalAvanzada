@@ -39,21 +39,19 @@ void setup() {
 
 void loop() {
   
-  while(true) {
-    int sensor1 = digitalRead(pinSensor1);
-    int sensor2 = digitalRead(pinSensor2);
-    displayNumber(nAutos);
-    delay(50);
-
-    if (sensor1 == digitalRead(pinSensor1) && sensor1 == HIGH && sensor2 == digitalRead(pinSensor2) && sensor2 == HIGH) {
-      bajarBarrera();
-    } else if (sensor1 == digitalRead(pinSensor1) && sensor1 == LOW && sensor2 == digitalRead(pinSensor2) && sensor2 == HIGH && nAutos<10) {
-      subirBarrera();
-      state10A();
-    } else if (sensor1 == digitalRead(pinSensor1) && sensor1 == HIGH && sensor2 == digitalRead(pinSensor2) && sensor2 == LOW) {
-      subirBarrera();
-      state01B();
-    }
+  int sensor1 = digitalRead(pinSensor1);
+  int sensor2 = digitalRead(pinSensor2);
+  displayNumber(nAutos);
+  delay(50);
+  
+  if (sensor1 == digitalRead(pinSensor1) && sensor1 == HIGH && sensor2 == digitalRead(pinSensor2) && sensor2 == HIGH) {
+    bajarBarrera();
+  } else if (sensor1 == digitalRead(pinSensor1) && sensor1 == LOW && sensor2 == digitalRead(pinSensor2) && sensor2 == HIGH && nAutos<10) {
+    subirBarrera();
+    state10A();
+  } else if (sensor1 == digitalRead(pinSensor1) && sensor1 == HIGH && sensor2 == digitalRead(pinSensor2) && sensor2 == LOW) {
+    subirBarrera();
+    state01B();
   }
 }
 
